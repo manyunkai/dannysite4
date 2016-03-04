@@ -163,3 +163,15 @@ CKEDITOR_CONFIGS = {
 # Blog
 BLOG_VISITORS_CACHE_KEY = 'blog:{0}:visitors'
 BLOG_VISITORS_CACHE_TIMEOUT = 24 * 60 * 60
+
+# OSS options
+OSS_OPTIONS = {
+    'bucket': '',       # your bucket
+    'location': '',     # location prefix
+    'base_url': '',     # url prefix when requesting
+    'image_process_base_url': '',   # url prefix when requesting processed image
+    'image_process_rule': '',   # such as @1e_1c_0o_0l_100h_100w_100q
+    'endpoint': '',     # your endpoint
+    'access_key': '',   # your access key
+    'access_key_secret': ''     # your access key secret
+}

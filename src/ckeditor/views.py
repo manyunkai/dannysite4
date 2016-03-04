@@ -119,8 +119,11 @@ def get_files_browse_urls(user=None):
     files = []
     for filename in get_image_files(user=user):
         src = utils.get_media_url(filename)
-        if getattr(settings, 'CKEDITOR_IMAGE_BACKEND', None):
+        backend = getattr(settings, 'CKEDITOR_IMAGE_BACKEND', None)
+        if backend == 'pillow':
             thumb = utils.get_media_url(utils.get_thumb_filename(filename))
+        elif backend == 'oss':
+            thumb = default_storage.image_processed_url(filename)
         else:
             thumb = src
         files.append({

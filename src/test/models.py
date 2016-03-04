@@ -1,10 +1,10 @@
 # -*-coding:utf-8 -*-
-'''
+"""
 Created on 2014-4-5
 
 @author: Danny<manyunkai@hotmail.com>
 DannyWork Project.
-'''
+"""
 
 import os
 import uuid
@@ -13,10 +13,11 @@ from django.db import models
 
 from ckeditor.fields import RichTextField
 from core.files import MultiSizeImageField
+from core.storage import AliOSSStorage
 
 
 def upload_to(instance, filename):
-    return 'media/test/' + str(uuid.uuid4()) + os.path.splitext(filename)[1]
+    return 'test/' + str(uuid.uuid4()) + os.path.splitext(filename)[1]
 
 
 CONFIG_TEST = {
@@ -33,6 +34,8 @@ CONFIG_TEST = {
 
 class Test(models.Model):
     image = MultiSizeImageField(upload_to=upload_to, config=CONFIG_TEST['dims'])
+    oss_image = models.ImageField('OSS', storage=AliOSSStorage(), upload_to=upload_to)
+
     content = RichTextField(u'内容')
 
     def __str__(self):
