@@ -50,6 +50,10 @@ requests==2.8.1
 
 oss2==2.0.5
 
+## 如何使用
+---
+请参考 http://www.dannysite.com/blog/221/
+
 ## 更新历史
 ---
 
@@ -58,7 +62,8 @@ oss2==2.0.5
 
 * 增加对阿里云 OSS 的支持，在使用前请针对 settings 中的 OSS_OPTIONS 配置项进行配置；
 * 修改 CKEditor 相关逻辑以支持阿里云 OSS，在使用前，需设置 DEFAULT_FILE_STORAGE 为 'core.storage.AliOSSStorage' 并将 CKEDITOR_IMAGE_BACKEND 配置项改为 'oss';
-* test.models 增加 oss_image，可以在 INSTALLED_APPS 中引入 test 对 OSS 上传进行测试。
+* test.models 增加 oss_image，可以在 INSTALLED_APPS 中引入 test 对 OSS 上传进行测试；
+* 如何使用请参考 http://www.dannysite.com/blog/221/
 
 ###### 4.0
 ---
